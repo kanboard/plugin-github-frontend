@@ -30,3 +30,31 @@ You have the choice between 3 methods:
 3. Clone this repository into the folder `plugins/GithubFrontend`
 
 Note: Plugin folder is case-sensitive.
+
+Documentation
+-------------
+
+### Select the Github task provider
+
+![github_frontend1](https://cloud.githubusercontent.com/assets/323546/20085430/dd09b27a-a536-11e6-8280-aa668f28af0e.png)
+
+To import a new Github Issue, you have to select the external task provider first.
+When you create a new task, on the right, select the external provider.
+
+### Provide the information to load the issue
+
+![github_frontend2](https://cloud.githubusercontent.com/assets/323546/20085431/dd0a5694-a536-11e6-9893-d135c3489cd4.png)
+
+To import a Github Issue, the project owner (organization), the project name and the issue number are required.
+
+### Edit the task
+
+![github_frontend3](https://cloud.githubusercontent.com/assets/323546/20085432/dd0b38f2-a536-11e6-8ee5-e083854c1d01.png)
+
+By default, the plugin will populate the form with the Issue information.
+
+### Visualize issue information directly in Kanboard
+
+![github_frontend4](https://cloud.githubusercontent.com/assets/323546/20085429/dd09a21c-a536-11e6-91e6-a11780782001.png)
+
+When you are going on the task view page, Kanboard will load asynchronously the Github Issue into the Kanboard user interface.

@@ -31,15 +31,28 @@ class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
      * @param  string $uri
      * @return ExternalTaskInterface
      */
-    public function retrieve($uri)
+    public function fetch($uri)
     {
         $issue = $this->httpClient->getJson($uri);
 
         if (empty($issue)) {
-            throw new NotFoundException(t('Github Issue not found'));
+            throw new NotFoundException(t('Github Issue not found.'));
         }
 
         return new GithubTask($uri, $issue);
+    }
+
+    /**
+     * Save external task to another system
+     *
+     * @param  string $uri
+     * @param  array  $formValues
+     * @param  array  $formErrors
+     * @return bool
+     */
+    public function save($uri, array $formValues, array &$formErrors)
+    {
+        return true;
     }
 
     /**
@@ -60,6 +73,16 @@ class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
     public function getCreationFormTemplate()
     {
         return 'GithubFrontend:task/creation';
+    }
+
+    /**
+     * Get modification form template
+     *
+     * @return string
+     */
+    public function getModificationFormTemplate()
+    {
+        return 'GithubFrontend:task/modification';
     }
 
     /**

@@ -6,8 +6,9 @@ Github Frontend
 Manage Github Issues with Kanboard.
 
 - Import any Github issues in Kanboard
-- Manage Github issues like any Kanbard tasks
+- Manage Github issues like any Kanboard tasks
 - Load Github issue information into Kanboard user interface
+- Compatible with Github Enterprise
 
 Author
 ------

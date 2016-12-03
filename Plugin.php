@@ -10,6 +10,7 @@ class Plugin extends Base
     public function initialize()
     {
         $this->template->hook->attach('template:layout:css', 'plugins/GithubFrontend/Asset/plugin.css');
+        $this->template->hook->attach('template:config:integrations', 'GithubFrontend:config/integration');
         $this->externalTaskManager->register(new GithubTaskProvider($this->container));
     }
 

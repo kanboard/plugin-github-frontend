@@ -9,7 +9,7 @@ use Kanboard\Core\ExternalTask\NotFoundException;
 
 class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
 {
-    const ISSUE_URL = 'https://api.github.com/repos/%s/%s/issues/%d';
+    const DEFAULT_API_URL = 'https://api.github.com/';
 
     /**
      * Get provider name (visible in the user interface)
@@ -33,7 +33,7 @@ class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
      */
     public function fetch($uri)
     {
-        $issue = $this->httpClient->getJson($uri);
+        $issue = $this->httpClient->getJson($uri, $this->getAuthorizationHeaders());
 
         if (empty($issue)) {
             throw new NotFoundException(t('Github Issue not found.'));
@@ -103,6 +103,55 @@ class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
      */
     public function buildTaskUri(array $values)
     {
-        return sprintf(self::ISSUE_URL, $values['organization'], $values['project'], $values['number']);
+        return sprintf($this->getIssueApiUrl(), $values['organization'], $values['project'], $values['number']);
+    }
+
+    /**
+     * Get API Base URL
+     *
+     * @return string
+     */
+    protected function getBaseApiUrl()
+    {
+        $customApiUrl = $this->configModel->get('github_frontend_api_url');
+
+        if (! empty($customApiUrl)) {
+            if (substr($customApiUrl, -1) !== '/') {
+                return $customApiUrl.'/';
+            }
+
+            return $customApiUrl;
+        }
+
+        return self::DEFAULT_API_URL;
+    }
+
+    /**
+     * Get Issue URL
+     *
+     * @return string
+     */
+    protected function getIssueApiUrl()
+    {
+        return $this->getBaseApiUrl().'repos/%s/%s/issues/%d';
+    }
+
+    /**
+     * Get API authorization headers
+     *
+     * @return array
+     */
+    protected function getAuthorizationHeaders()
+    {
+        $apiUsername = $this->configModel->get('github_frontend_api_username');
+        $apiToken = $this->configModel->get('github_frontend_api_access_token');
+
+        if (! empty($apiUsername) && ! empty($apiToken)) {
+            return array(
+                'Authorization: Basic '.base64_encode($apiUsername.':'.$apiToken)
+            );
+        }
+
+        return array();
     }
 }

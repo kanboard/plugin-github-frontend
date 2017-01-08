@@ -1,5 +1,5 @@
 <h3><i class="fa fa-github fa-fw"></i><?= t('Github Frontend Plugin') ?></h3>
-<div class="listing">
+<div class="panel">
     <?= $this->form->label(t('Github API URL'), 'github_frontend_api_url') ?>
     <?= $this->form->text('github_frontend_api_url', $values) ?>
     <p class="form-help"><?= t('Leave blank to use the default URL.') ?></p>

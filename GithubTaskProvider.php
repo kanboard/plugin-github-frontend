@@ -22,6 +22,22 @@ class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
         return 'Github';
     }
 
+    public function getIcon()
+    {
+        return '<i class="fa fa-github fa-fw" aria-hidden="true"></i>';
+    }
+
+    /**
+     * Get label for adding a new task
+     *
+     * @access public
+     * @return string
+     */
+    public function getMenuAddLabel()
+    {
+        return t('Add new Github Issue');
+    }
+
     /**
      * Retrieve task from external system or cache
      *

@@ -37,10 +37,9 @@ Documentation
 
 ### Select the Github task provider
 
-![github_frontend1](https://cloud.githubusercontent.com/assets/323546/20085430/dd09b27a-a536-11e6-8280-aa668f28af0e.png)
+![Add Github task](https://user-images.githubusercontent.com/323546/31741836-8f8cf51e-b40a-11e7-89e2-da54456e3bea.png)
 
-To import a new Github Issue, you have to select the external task provider first.
-When you create a new task, on the right, select the external provider.
+From the plus icon, choose "Add a new Github issue".
 
 ### Provide the information to load the issue
 

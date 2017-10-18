@@ -35,7 +35,7 @@ class GithubTaskProvider extends Base implements ExternalTaskProviderInterface
      */
     public function getMenuAddLabel()
     {
-        return t('Add new Github Issue');
+        return t('Add a new Github Issue');
     }
 
     /**

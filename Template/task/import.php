@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2><?= $this->text->e($project['name']) ?> &gt; <?= t('Github Issue') ?><?= $this->task->getNewTaskDropdown($project['id'], $values['swimlane_id'], $values['column_id']) ?></h2>
+    <h2><?= $this->text->e($project['name']) ?> &gt; <?= t('Github Issue') ?></h2>
 </div>
 
 <?= $this->form->label(t('Github Organization'), 'organization') ?>

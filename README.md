@@ -1,8 +1,6 @@
 Github Frontend
 ===============
 
-[![Build Status](https://travis-ci.org/kanboard/plugin-github-frontend.svg?branch=master)](https://travis-ci.org/kanboard/plugin-github-frontend)
-
 Manage Github Issues with Kanboard.
 
 - Import any Github issues in Kanboard
